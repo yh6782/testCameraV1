@@ -54,23 +54,23 @@ export default class CameraScreen extends React.Component {
             source = {require('../images/testImage.png')}
             style = {{width:60, height:60}}>
         </Image> */}
-            <VideoPlayer 
+            <VideoPlayer
                             resizeMode = 'contain'
 
-                            //source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
+                            source={{ uri: "https://vjs.zencdn.net/v/oceans.mp4" }}
                             //source={require('../videos/YJep14.m4v')}                            
-                          //source={require('../videos/testVideo.mp4')}
+                            //source={require('../videos/testVideo.mp4')}
 
-                            source={require('../videos/testVideo.mp4')}
+                         
 
                             style = {styles.preview}
                             rate={1.0}                              // 0 is paused, 1 is normal.
                             volume={1.0}                            // 0 is muted, 1 is normal.
                             muted={false}                           // Mutes the audio entirely.
-                            paused={false}                          // Pauses playback entirely.
-                            resizeMode="contain"                      // Fill the whole screen at aspect ratio.*
+                            paused={true}                          // Pauses playback entirely.
+                            resizeMode="contain"                   // Fill the whole screen at aspect ratio.*
                             repeat={true} 
-                            ignoreSilentSwitch={"ignore"}           // [iOS] ignore | obey - When 'ignore', audio will still play with the iOS hard silent switch set to silent. When 'obey', audio will toggle with the switch. When not specified, will inherit audio settings as usual.
+                            ignoreSilentSwitch={"obey"}           // [iOS] ignore | obey - When 'ignore', audio will still play with the iOS hard silent switch set to silent. When 'obey', audio will toggle with the switch. When not specified, will inherit audio settings as usual.
 
 
 
@@ -128,11 +128,10 @@ export default class CameraScreen extends React.Component {
     const options = {};
     //options.location = ...
     this.camera.capture({
-      metadata:options
-      
+      metadata:options,
+      totalSeconds:8
     })
-
-    
+  
       .then((data) => console.log(data))
       .catch(err => console.error(err));
   }

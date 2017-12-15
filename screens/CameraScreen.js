@@ -27,41 +27,24 @@ export default class CameraScreen extends React.Component {
         tabBarIcon:({tintColor}) => (
           <Image
           source = {require('../images/testCamera.png')}
-          style = {{width:22, height:22, tintColor:'white'}}>
+          style = {{width:12, height:12, tintColor:'white'}}>
           </Image>
         )
     };
   render() {
     return (
       <View style={styles.container}>          
-        
-        {/* <Image
-            source = {require('../images/testImage.png')}
-            style = {{width:60, height:60}}>
-        </Image>
-          
-        <Image
-            source = {require('../images/testImage.png')}
-            style = {{width:60, height:60}}>
-        </Image>   
 
-        <Image
-            source = {require('../images/testImage.png')}
-            style = {{width:60, height:60}}>
-        </Image>
-
-        <Image
-            source = {require('../images/testImage.png')}
-            style = {{width:60, height:60}}>
-        </Image> */}
             <VideoPlayer
-                            resizeMode = 'contain'
 
-                            source={{ uri: "https://vjs.zencdn.net/v/oceans.mp4" }}
-                            //source={require('../videos/YJep14.m4v')}                            
-                            //source={require('../videos/testVideo.mp4')}
+                      resizeMode = 'contain'
+                      source={{ uri: "https://vjs.zencdn.net/v/oceans.mp4" }}
+                      //source={require('../videos/YJep14.m4v')}                            
+                      //source={require('../videos/testVideo.mp4')}
 
-                         
+                      ref={(ref) => {
+                        this.player = ref
+                      }}   
 
                             style = {styles.preview}
                             rate={1.0}                              // 0 is paused, 1 is normal.
@@ -82,16 +65,18 @@ export default class CameraScreen extends React.Component {
                     onError={this.videoError}               // Callback when video cannot be loaded
                     onBuffer={this.onBuffer}                // Callback when remote video is buffering
                     onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
-                     
-                            
-                />      
+                    
+                   
+                    controlTimeout = {20000} // 20 seconds             
+                    disableBack = {true}
+                  />      
 
          <Camera 
              
           ref={(cam) => {
             this.camera = cam;
           }} 
-      //  style={styles.cDimension}
+
           style={styles.preview}
        
           aspect={Camera.constants.Aspect.fill}
@@ -100,26 +85,23 @@ export default class CameraScreen extends React.Component {
           keepAwake={true}
           >
 
-       
-        </Camera>       
+          </Camera>       
   
         <TouchableHighlight
           style={styles.capture} 
           onPressIn={this.takeVid.bind(this)}
           onPressOut={this.stopVid.bind(this)}
-         // underlayColor='rgba(255,255,255,1.0)'
+      
           >
 
           <Image
           source = {require('../images/testCamera.png')}
-          style = {{width:50, height:50}}>
+          style = {{width:30, height:30}}>
           </Image>
 
           
         </TouchableHighlight>
 
-      
-          <View/>
       </View>
     );
   }
@@ -129,7 +111,7 @@ export default class CameraScreen extends React.Component {
     //options.location = ...
     this.camera.capture({
       metadata:options,
-      totalSeconds:8
+      totalSeconds:8 //record for 8 seconds only
     })
   
       .then((data) => console.log(data))

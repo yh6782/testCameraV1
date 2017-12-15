@@ -18,17 +18,19 @@ var Navigation = TabNavigator({
   Tab2:{screen:CameraScreen},
   Tab3:{screen:ThirdScreen}
 }, {
+
   tabBarPosition:'bottom',
   swipeEnabled:false,
   tabBarOptions: {
     showIcon:true,  
-    activeTintColor: '#2c3e50',
+    activeTintColor: 'white',
     activeBackgroundColor: 'white',
-    inactiveTintColor:'white',
+    inactiveTintColor:'#7f8c8d',
     inactiveBackgroundColor:'#2c3e50',
+    style: { backgroundColor: '#2c3e50' },
     labelStyle: {
-      frontSize:12,
-      padding:0
+      frontSize:9.5,
+ 
     }
   }
 });

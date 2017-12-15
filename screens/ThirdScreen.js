@@ -55,13 +55,7 @@ export default class ThirdScreen extends React.Component{
                     // onTimedMetadata={this.onTimedMetadata}  // Callback when the stream receive some metadata
                     //this.player.presentFullScreen() 
                     
-                    /> */}
-
-                       
-
-            
-
-                 
+                    /> */}   
 
         </View>
         )

@@ -19,7 +19,7 @@ var Navigation = TabNavigator({
   Tab3:{screen:ThirdScreen}
 }, {
   tabBarPosition:'bottom',
-  swipeEnabled:true,
+  swipeEnabled:false,
   tabBarOptions: {
     showIcon:true,  
     activeTintColor: '#2c3e50',

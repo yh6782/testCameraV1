@@ -18,7 +18,7 @@ import {StackNavigator} from 'react-navigation'
 
 import Camera from 'react-native-camera'
 import Video from 'react-native-video'
-
+import VideoPlayer from 'react-native-video-controls'
 let startVideo = false;
 export default class CameraScreen extends React.Component {
     static navigationOptions = {
@@ -54,9 +54,15 @@ export default class CameraScreen extends React.Component {
             source = {require('../images/testImage.png')}
             style = {{width:60, height:60}}>
         </Image> */}
-            <Video 
+            <VideoPlayer 
                             resizeMode = 'contain'
+
+                            //source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
+                            //source={require('../videos/YJep14.m4v')}                            
+                          //source={require('../videos/testVideo.mp4')}
+
                             source={require('../videos/testVideo.mp4')}
+
                             style = {styles.preview}
                             rate={1.0}                              // 0 is paused, 1 is normal.
                             volume={1.0}                            // 0 is muted, 1 is normal.

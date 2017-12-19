@@ -29,11 +29,11 @@ export default class FrontPage extends React.Component{
                 </Image>
 
 
-                <Text style = {styles.capture}> Boiler text </Text>
+                <Text style = {styles.capture}> Record your interview </Text>
 
-                <Text style = {styles.capture}> Boiler text </Text>
+                <Text style = {styles.capture}> Answer the questions asked in the video </Text>
 
-                <Text style = {styles.capture}> Boiler text </Text> 
+                <Text style = {styles.capture}> Time limit is {`8`} minutes   </Text>  
             </View>
         )
     }
@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
         color:'white',
         borderRadius:5,
         padding:10,
-        margin: 15
+        margin: 15,
+        textAlign: 'center'
     }
 })
